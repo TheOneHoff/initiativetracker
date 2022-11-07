@@ -38,12 +38,11 @@ header {
 }
 
 #controls {
-    padding: 20px;
     display: inline-flex;
-    gap: 15px;
     align-items: center;
     justify-content: center;
-    max-height: 120px;
+    width: 100%;
+
 }
 
 .control-button {
@@ -61,7 +60,10 @@ header {
     -moz-user-select: -moz-none;
     -ms-user-select: none;
     user-select: none;
-    height: 100px;
+    height: 10vh;
+    max-height: 120px;
+    min-height: 60px;
+    margin: 20px 5px;
 }
 
 #table {
