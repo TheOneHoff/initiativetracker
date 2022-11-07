@@ -1,0 +1,128 @@
+:root {
+    --color-1: #2c2c54;
+    --color-2: #383838;
+    --color-3: #474787;
+    --color-4: #706fd3;
+    --color-5: #dff9fb;
+    --green: #33d9b2;
+    --red: #ff5252;
+    --dark-red: #b33939;
+    --blue: #34ace0;
+    --yellow: #ffb142;
+}
+
+.disable-select {
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    all: unset;
+    background-color: var(--color-1);
+    color: var(--color-5);
+}
+
+header {
+    display: grid;
+    align-items: center;
+    background-color: var(--color-2);
+}
+
+.header-button {
+    align-items: center;
+    font-family: 'Material Symbols Outlined';
+    font-size: 36pt;
+    cursor: pointer;
+}
+
+#controls {
+    padding: 20px;
+    display: inline-flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    max-height: 120px;
+}
+
+.control-button {
+    all: unset;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Material Symbols Outlined';
+    font-size: 36pt;
+    cursor: pointer;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    background-color: var(--color-3);
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 100px;
+}
+
+#table {
+    display: flex;
+    justify-content: center;
+}
+
+#table table {
+    border-collapse: collapse;
+    border-color: var(--color-5);
+    background-color: var(--color-3);
+    font-family: 'source sans pro', Arial, sans-serif;
+    font-size: x-large;
+    width: 95%;
+    max-width: 1500px;
+    text-align: left;
+}
+
+#table tr {
+    height: 40px;
+}
+
+#table th, td {
+    padding: 0px 10px;
+    min-width: 20px;
+}
+
+#table th {
+    text-overflow: clip;
+}
+
+#table td + td, th + th {
+    border-left: 2px solid;
+}
+
+#table tr + tr {
+    border-top: 2px solid;
+}
+
+#table tr.active {
+    background-color: var(--color-4);
+}
+
+#table tr td:last-child, th:last-child {
+    background-color: var(--red);
+    font-family: 'Material Symbols Outlined';
+    text-align: center;
+    cursor: pointer;
+    padding: 0px;
+    font-size: xx-large;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#table td input {
+    all: unset;
+    width: 100%;
+}
+
+input[type='number'] {
+    appearance: textfield !important;
+}
