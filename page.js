@@ -3,6 +3,7 @@ $(document).ready(() => {
     $('#table tr td:last-child').click(remove_row);
     $('#next_row').click(highlight_next_row);
     $('#sort_rows').click(sort_rows);
+    $('#delete_all').click(remove_all_rows);
 });
 
 const row_html = `
@@ -54,4 +55,8 @@ function comparer(index) {
 
 function get_cell_value(row, index) {
     return $(row).children('td').eq(index).children('input').val();
+};
+
+function remove_all_rows() {
+    $('#table tr:not(:first-child)').remove();
 };
