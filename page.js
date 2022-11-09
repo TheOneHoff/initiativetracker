@@ -1,9 +1,11 @@
 $(document).ready(() => {
+    reload_data();
     $('#add_row').click(add_empty_row);
     $('#table tr td:last-child').click(remove_row);
     $('#next_row').click(highlight_next_row);
     $('#sort_rows').click(sort_rows);
     $('#delete_all').click(remove_all_rows);
+    $('#save').click(save_page);
 });
 
 const row_html = `
@@ -57,4 +59,19 @@ function get_cell_value(row, index) {
 
 function remove_all_rows() {
     $('#table tr:not(:first-child)').remove();
+};
+
+function save_page() {
+    let values = $('#table input').map(function() {return this.value}).get();
+    localStorage.data = values;
+    localStorage.rows = values.length / 4;
+};
+
+function reload_data() {
+    let rows = localStorage.rows;
+    let data = localStorage.data.split(',');
+    for(let i = 0; i < rows; i++) {add_empty_row()};
+    $('#table input').each(function(i) {
+        $(this).val(data[i]);
+    });
 };
