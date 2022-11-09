@@ -5,7 +5,6 @@ $(document).ready(() => {
     $('#next_row').click(highlight_next_row);
     $('#sort_rows').click(sort_rows);
     $('#delete_all').click(remove_all_rows);
-    $('#save').click(save_page);
 });
 
 const row_html = `
@@ -21,10 +20,12 @@ const row_html = `
 function add_empty_row() {
     $('#table table tbody').append(row_html);
     $('#table tr td:last-child').click(remove_row);
+    save_page();
 };
 
 function remove_row() {
     $(this).parent().remove();
+    save_page();
 }
 
 function highlight_next_row() {
@@ -44,6 +45,7 @@ function sort_rows() {
     rows.sort(comparer(0));
     rows.reverse();
     for (var i = 0; i < rows.length; i++){table.append(rows[i])};
+    save_page();
 };
 
 function comparer(index) {

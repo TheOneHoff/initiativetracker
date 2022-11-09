@@ -62,9 +62,9 @@ header {
     -moz-user-select: -moz-none;
     -ms-user-select: none;
     user-select: none;
-    height: 7vh;
+    height: 10vh;
     max-height: 120px;
-    min-height: 60px;
+    min-height: 90px;
     margin: 20px 5px;
 }
 
