@@ -42,8 +42,6 @@ function sort_rows() {
     rows.sort(comparer(0));
     rows.reverse();
     for (var i = 0; i < rows.length; i++){table.append(rows[i])};
-    $('#table tr.active').removeClass('active');
-    $('#table tr:nth-child(2)').addClass('active');
 };
 
 function comparer(index) {
