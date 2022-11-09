@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    reload_data();
+    if(localStorage.data) {reload_data()};
     $('#add_row').click(add_empty_row);
     $('#table tr td:last-child').click(remove_row);
     $('#next_row').click(highlight_next_row);
