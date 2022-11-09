@@ -5,6 +5,7 @@ $(document).ready(() => {
     $('#next_row').click(highlight_next_row);
     $('#sort_rows').click(sort_rows);
     $('#delete_all').click(remove_all_rows);
+    $('input').on('input', save_page);
 });
 
 const row_html = `
