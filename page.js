@@ -59,6 +59,8 @@ function get_cell_value(row, index) {
 
 function remove_all_rows() {
     $('#table tr:not(:first-child)').remove();
+    localStorage.rows = 0;
+    localStorage.data = '';
 };
 
 function save_page() {
