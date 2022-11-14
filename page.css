@@ -66,6 +66,11 @@ header {
     max-height: 120px;
     min-height: 90px;
     margin: 20px 5px;
+    transition: transform 200ms;
+}
+
+.control-button:hover {
+    transform: scale(1.1);
 }
 
 #table {
@@ -115,11 +120,18 @@ header {
     text-align: center;
     cursor: pointer;
     padding: 0px;
+    padding-left: 2px;
     font-size: xx-large;
     -webkit-user-select: none;
     -moz-user-select: -moz-none;
     -ms-user-select: none;
     user-select: none;
+    transition: color 200ms, background-color 200ms;
+}
+
+#table tr td:last-child:hover {
+    background-color: var(--color-5);
+    color: var(--red);
 }
 
 #table td input {
