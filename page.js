@@ -6,6 +6,7 @@ $(document).ready(() => {
     $('#sort_rows').click(sort_rows);
     $('#delete_all').click(remove_all_rows);
     $('input').on('input', save_page);
+    $('input[type=number]').on('keypress', prevent_non_numerical_input);
 });
 
 const row_html = `
@@ -79,4 +80,12 @@ function reload_data() {
     $('#table input').each(function(i) {
         $(this).val(data[i]);
     });
+};
+
+function prevent_non_numerical_input(e) {
+    let character = String.fromCharCode(e.keyCode);
+
+    if(!character.match(/^[0-9]+$/)) {
+        e.preventDefault();
+    };
 };
