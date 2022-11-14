@@ -109,7 +109,7 @@ header {
     background-color: var(--color-4);
 }
 
-#table tr td:last-child, th:last-child {
+#table tr td:last-child {
     background-color: var(--red);
     font-family: 'Material Symbols Outlined';
     text-align: center;
