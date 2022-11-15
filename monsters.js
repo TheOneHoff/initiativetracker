@@ -1,5 +1,5 @@
 
-var monsters = [
+let monsters = [
   { id: 117, name: "Aarakocra", AC: 12, HP: 13, DEX: 14, HPD:[3, 8, 0] },
   { id: 118, name: "Aboleth", AC: 17, HP: 135, DEX: 9, HPD:[18, 10, 36] },
   { id: 119, name: "Abominable Yeti", AC: 15, HP: 137, DEX: 10, HPD:[11, 12, 66] },

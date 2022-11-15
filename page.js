@@ -11,17 +11,18 @@ $(document).ready(() => {
 
 const row_html = `
 <tr>
-<td><input type='number'></td>
-<td><input type='text' autocomplete="on"></td>
-<td><input type='number'></td>
-<td><input type='number'></td>
+<td><input type='number'></input></td>
+<td><input type='text'></input></td>
+<td><input type='number'></input></td>
+<td><input type='number'></input></td>
 <td>close</td>
 </tr>
 `
 
 function add_empty_row() {
     $('#table table tbody').append(row_html);
-    $('#table tr td:last-child').click(remove_row);
+    $('#table tr:last-child td:last-child').click(remove_row);
+    add_input_click();
     save_page();
 };
 

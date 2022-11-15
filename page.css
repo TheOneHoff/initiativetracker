@@ -94,6 +94,7 @@ header {
 }
 
 #table th, td {
+    position: relative;
     padding: 0px 10px;
     min-width: 20px;
 }
@@ -127,6 +128,7 @@ header {
     -ms-user-select: none;
     user-select: none;
     transition: color 200ms, background-color 200ms;
+    background-clip: padding-box;
 }
 
 #table tr td:last-child:hover {
@@ -141,4 +143,26 @@ header {
 
 input[type='number'] {
     appearance: textfield !important;
+}
+
+.autocomplete_items {
+    list-style: none;
+    padding: 0px;
+    background-color: var(--color-2);
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    box-shadow: 10px 24px 40px -10px rgba(0,0,0,.75);
+}
+
+.autocomplete_entry {
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.autocomplete_entry:hover {
+    color: var(--color-2);
+    background-color: var(--color-5);
 }
