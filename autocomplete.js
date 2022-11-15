@@ -6,11 +6,6 @@ const autocomplete_entry = (item) => `
 <li class="autocomplete_entry">${item}</li>
 `
 
-let monster_names = [];
-for(let i = 0; i < monsters.length; i++) {
-    monster_names.push(monsters[i].name);
-};
-
 $(document).ready(() => {
     add_input_click();
     $(document).click(close_all_lists);
@@ -31,15 +26,16 @@ function display_entries() {
     list.setAttribute('class', 'autocomplete_items');
     this.parentNode.appendChild(list);
     /* Check for matching entries in the monsters array */
-    for(let i = 0; i < monster_names.length; i++) {
+    for(let i = 0; i < monsters.length; i++) {
         /* Create substring of monster name of equal length to input value */
-        let name_substring = monster_names[i].substr(0, val.length).toUpperCase();
+        let monster_name = monsters[i].name
+        let name_substring = monster_name.substr(0, val.length).toUpperCase();
         /* Compare */
         if(name_substring != val.toUpperCase()) {continue;}
         /* Create list element for entry */
         let entry = document.createElement('li');
         entry.setAttribute('class', 'autocomplete_entry');
-        entry.innerHTML = monster_names[i];
+        entry.innerHTML = monster_name;
         list.appendChild(entry);
     };
     /* Add click event to list entries */
