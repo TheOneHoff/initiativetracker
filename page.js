@@ -6,13 +6,16 @@ $(document).ready(() => {
     $('#sort_rows').click(sort_rows);
     $('#delete_all').click(remove_all_rows);
     $('input').on('input', save_page);
+    $('textarea').on('input', save_page);
     $('input[type=number]').on('keypress', prevent_non_numerical_input);
+    $('textarea').each(function() {resize_textarea(this);});
+    $('textarea').on('input', function() {resize_textarea(this);});
 });
 
 const row_html = `
 <tr>
 <td><input type='number'></input></td>
-<td><input type='text'></input></td>
+<td><textarea></textarea></td>
 <td><input type='number'></input></td>
 <td><input type='number'></input></td>
 <td>close</td>
@@ -59,7 +62,8 @@ function comparer(index) {
 };
 
 function get_cell_value(row, index) {
-    return $(row).children('td').eq(index).children('input').val();
+    let temp = $(row).children('td').eq(index).children('input, textarea').val();
+    return temp;
 };
 
 function remove_all_rows() {
@@ -69,7 +73,7 @@ function remove_all_rows() {
 };
 
 function save_page() {
-    let values = $('#table input').map(function() {return this.value}).get();
+    let values = $('#table input, textarea').map(function() {return this.value}).get();
     localStorage.data = values;
     localStorage.rows = values.length / 4;
 };
@@ -78,7 +82,7 @@ function reload_data() {
     let rows = localStorage.rows;
     let data = localStorage.data.split(',');
     for(let i = 0; i < rows; i++) {add_empty_row()};
-    $('#table input').each(function(i) {
+    $('#table input, textarea').each(function(i) {
         $(this).val(data[i]);
     });
 };
@@ -89,4 +93,10 @@ function prevent_non_numerical_input(e) {
     if(!character.match(/^[0-9]+$/)) {
         e.preventDefault();
     };
+};
+
+function resize_textarea(element) {
+    $(element).height(31);
+    let scroll_height = $(element).prop('scrollHeight');
+    $(element).height(scroll_height);
 };

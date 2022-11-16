@@ -12,7 +12,7 @@ $(document).ready(() => {
 });
 
 function add_input_click() {
-    $('#table input[type=text]').on('input', display_entries);
+    $('#table textarea').on('input', display_entries);
 };
 
 function display_entries() {
@@ -51,9 +51,10 @@ function autocomplete() {
     let name = this.textContent;
     let monster = monsters.find(x => x.name === name);
     
-    $(this).parents('tr').find('input').eq(1).val(name);
-    $(this).parents('tr').find('input').eq(2).val(monster.AC);
-    $(this).parents('tr').find('input').eq(3).val(monster.HP);
+    $(this).parents('tr').find('textarea').eq(0).val(name);
+    $(this).parents('tr').find('input').eq(1).val(monster.AC);
+    $(this).parents('tr').find('input').eq(2).val(monster.HP);
 
+    resize_textarea($(this).parents('tr').find('textarea').eq(0));
     save_page();
 };
